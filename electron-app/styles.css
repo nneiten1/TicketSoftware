@@ -1,5 +1,16 @@
+:root{
+    --primary-bg-color: rgb(78, 77, 77);
+    --front-page-text: rgb(255, 255, 255);
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url("./fonts/source-sans-pro/SourceSansPro-Light.ttf") format("truetype");
+}
+
 body{
-    background-color: rgb(78, 77, 77);
+    background-color: var(--primary-bg-color);
+    font-family: "CustomFont", sans-serif;
 }
 
 
@@ -7,24 +18,48 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
+    width: 100%;
+    justify-content: center;
 }
 
+/* for the front page logo */
 .logo-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
-.button1{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
+/* for front page contact information*/
+.front-page-contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--front-page-text);
+    width: 100%;
+}
+
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
     text-align: center;
+    margin-top: -4%;
+}
+
+/* front page ticket button*/
+.button1{
+    display: block;
+    width: 50%;
+    background-color: #3fb621;
+    padding: 15px 32px;
+    border: none;
+    color: var(--front-page-text);
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 7px;
 }
