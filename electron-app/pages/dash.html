@@ -23,9 +23,10 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="./openTickets.html">Open Tickets</a>
-                    <a href="./recentTickets.html">Recent Tickets</a>
-                    <a href="./closedTickets.html">Closed Tickets</a>
+                    <a href="./dash.html?view=open">Open Tickets</a>
+                    <a href="./dash.html?view=recent">Recent Tickets</a>
+                    <a href="./dash.html?view=closed">Closed Tickets</a>
+                    <a href="./dash.html?view=all">All Tickets</a>
                 </div>
             </div>
         </aside>
@@ -49,18 +50,18 @@
 
             <!-- Open, Recent, Closed, All tickets section -->
             <section>
-                <div class="ticket-types-section">
+                <div class="ticket-types-section" id="ticketTabs">
                     <div>
-                        <button class="open-btn-tabs-section">Open</button>
+                        <button id="open-tab" class="open-btn-tabs-section" data-view="open">View Open</button>
                     </div>
                     <div>
-                        <button class="recent-btn-tabs-section">Recent</button>
+                        <button id="tab" class="recent-btn-tabs-section" data-view="recent">View Recent</button>
                     </div>
                     <div>
-                        <button class="closed-btn-tabs-section">Closed</button>
+                        <button id="tab" class="closed-btn-tabs-section" data-view="closed">View Closed</button>
                     </div>
                     <div>
-                        <button class="all-btn-tabs-section">All</button>
+                        <button id="tab" class="all-btn-tabs-section" data-view="all">View All</button>
                     </div>
                 </div>
             </section>
@@ -92,39 +93,8 @@
                     </tr>
                 </thead>
 
-                <tbody class="table-body-section">
-                    <tr>
-                        <td class="col-select">
-                            <input type="checkbox" class="row-select" aria-label="Select ticket 12345">
-                        </td>
-                        <td>12345</td>
-                        <td>Example Ticket 1</td>
-                        <td>Open</td>
-                        <td>High</td>
-                        <td>5</td>
-                    </tr>
-
-                    <tr>
-                        <td class="col-select">
-                            <input type="checkbox" class="row-select" aria-label="Select ticket 67890">
-                        </td>
-                        <td>67890</td>
-                        <td>Example Ticket 2</td>
-                        <td>Closed</td>
-                        <td>Low</td>
-                        <td>2</td>
-                    </tr>
-
-                    <tr>
-                        <td class="col-select">
-                            <input type="checkbox" class="row-select" aria-label="Select ticket 54321">
-                        </td>
-                        <td>54321</td>
-                        <td>Example Ticket 3</td>
-                        <td>Open</td>
-                        <td>Medium</td>
-                        <td>10</td>
-                    </tr>
+                <tbody id="table-body" class="table-body-section">
+                    <!-- Javascript -->
                 </tbody>
             </table>
 
@@ -136,6 +106,7 @@
 
     </div>
     <script src="../js/foo.js"></script>
+    <script src="../js/tabs.js"></script>
 
 </body>
 </html>
