@@ -3,6 +3,7 @@
     --blue-btn-search: #4289f5;
     --red-closed-ticket-btn: rgb(228, 46, 46);
     --green-new-ticket-btn: rgb(22, 196, 22);
+    --edit-selected-ticket: rgb(82, 81, 81);
 }
 
 @font-face {
@@ -56,7 +57,6 @@ body{
 .sideNav .dropdown-btn{
   display: flex;
   align-items: center;
-  gap: 10px;
   width: 100%;
   padding: 10px 12px;
   margin: 6px 0;
@@ -69,6 +69,8 @@ body{
   font-size: 1.25rem;
   font-family: inherit;
   font-weight: 500;
+
+
 }
 
 .sideNav a:hover, .sideNav .dropdown-btn:hover{
@@ -106,7 +108,7 @@ body{
 
 .sideNav.collapsed{
   width: 64px;
-  background-color: transparent;
+  background-color: rgb(226, 226, 226);
 }
 
 .sideNav.collapsed .link-text{
@@ -156,6 +158,7 @@ body{
     padding: 20px;
     overflow-y: auto;
     min-width: 0;
+    background-color: rgb(226, 226, 226);
 }
 
 
@@ -252,6 +255,18 @@ body{
   cursor: pointer;
 }
 
+.archive-btn-tabs-section{
+  display: flex;
+  width: 220px;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: var(--blue-btn-search);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .main-new-tick-section{
   margin-top: 4%;
 }
@@ -294,6 +309,28 @@ body{
 
 .ticket-info-table thead, tr {
   border: 2px solid black;
+}
+
+.ticket-managing-buttons{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 5%;
+  align-items: end;
+  margin-top: 1%;
+}
+
+.edit-selected-btn{
+  display: flex;
+  width: 220px;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: var(--edit-selected-ticket);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-top: 4%;
 }
 
 .delete-selected-btn{

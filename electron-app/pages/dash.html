@@ -35,7 +35,7 @@
             <section class="very-top-section">
                 <div class="top-new-tick-and-search">
                     <div>
-                        <button id="top-new-ticket-btn" class="top-new-ticket-btn">New Ticket</button>
+                        <button id="top-new-ticket-btn" class="top-new-ticket-btn" onClick="document.location='newTicket.html'">New Ticket</button>
                     </div>
 
                     <div>
@@ -63,6 +63,9 @@
                     <div>
                         <button id="tab" class="all-btn-tabs-section" data-view="all">View All</button>
                     </div>
+                    <div>
+                        <button id="tab" class="archive-btn-tabs-section" data-view="all">View Archive</button>
+                    </div>
                 </div>
             </section>
 
@@ -70,7 +73,7 @@
             <section>
                 <div class="main-new-tick-section">
                     <div>
-                        <button class="main-new-ticket-btn">New Ticket</button>
+                        <button class="main-new-ticket-btn" onClick="document.location='newTicket.html'">New Ticket</button>
                     </div>
                     <div class="current-tickets-counter">
                         <p>3 Tickets</p>
@@ -97,9 +100,13 @@
                     <!-- Javascript -->
                 </tbody>
             </table>
-
-            <div>
-                <button id="delete-selected-btn" class="delete-selected-btn">Delete Selected</button>
+            <div class="ticket-managing-buttons">
+                <div>
+                    <button id="delete-selected-btn" class="delete-selected-btn">Delete Selected</button>
+                </div>
+                <div>
+                    <button id="edit-selected-btn" class="edit-selected-btn">Edit Selected</button>
+                </div>
             </div>
     
         </main>
