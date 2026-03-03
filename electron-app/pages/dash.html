@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body style="background-color: white;" >
+    <div class="app-layout">
+    
+        <!-- Side Nav -->
+        <aside>
+            <div id="mySideNav" class="sideNav">
+                <div>
+                    <img class="nav-image" src="../medina-county.png" alt="Logo" width="100px" height="100px">
+                    <button id="collapseSideBtn" class="collapse-side-btn" style="font-size: 1.25rem;">☰</button>
+                </div>
+                    
+                <a href="./accountOverview.html">Placeholder</a>
+                <a href="./dash.html">Dashboard</a>
+                <button class="dropdown-btn">Tickets 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="./openTickets.html">Open Tickets</a>
+                    <a href="./recentTickets.html">Recent Tickets</a>
+                    <a href="./closedTickets.html">Closed Tickets</a>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <!-- New Ticket btn and search for ticket section -->
+            <section>
+                <div class="top-new-tick-and-search">
+                    <div>
+                        <button id="top-new-ticket-btn" class="top-new-ticket-btn">New Ticket</button>
+                    </div>
+
+                    <div>
+                        <input type="text" id="search-ticket-input" class="top-search-ticket-input" placeholder="Search for a ticket # or name...">
+                    </div>
+                    
+                    <div>
+                        <button id="search-ticket-btn" class="search-ticket-btn">Search</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Open, Recent, Closed, All tickets section -->
+            <section>
+                <div class="ticket-types-section">
+                    <div>
+                        <button>Open</button>
+                    </div>
+                    <div>
+                        <button>Recent</button>
+                    </div>
+                    <div>
+                        <button>Closed</button>
+                    </div>
+                    <div>
+                        <button>All</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Ticket and number of tickets in certain tab? -->
+            <section>
+                <div class="main-new-tick-section">
+                    <div>
+                        <button>New Ticket</button>
+                    </div>
+                    <div>
+                        <p>12 Tickets</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Table for showing tickets -->
+            <table>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>Ticket Name</th>
+                    <th>Status</th>
+                    <th>Severity</th>
+                    <th>Days Open</th>
+                </tr>
+            </table>
+    
+        </main>
+
+    </div>
+    <script src="../js/foo.js"></script>
+
+</body>
+</html>

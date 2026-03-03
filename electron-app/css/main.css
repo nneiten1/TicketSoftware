@@ -1,0 +1,217 @@
+:root{
+    --side-nav-background: rgb(117, 117, 117);
+    --blue-btn-search: #4289f5;
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url("../fonts/source-sans-pro/SourceSansPro-Light.ttf") format("truetype");
+}
+
+@font-face{
+    font-family: "MainPageFont";
+    src: url("../fonts/source-sans-pro/SourceSansPro-Regular.ttf") format("truetype");
+}
+
+.top-new-tick-and-search, .ticket-types-section, .main-new-tick-section{
+    font-family: "MainPageFont", sans-serif;
+}
+
+aside{
+    font-family: "CustomFont", sans-serif;
+}
+
+aside {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+}
+
+.app-layout{
+    display: flex;
+    height: 100vh;
+}
+
+/* side nav manu*/
+.sideNav{
+  width: 9.5rem;
+  height: 100vh;
+  background-color: var(--side-nav-background);
+
+  overflow-x: hidden;
+  position: relative;
+
+  /* smoother motion */
+  transition: width 220ms ease;
+  will-change: width;
+}
+
+
+.sideNav a,
+.sideNav .dropdown-btn{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  margin: 6px 0;
+  text-decoration: none;
+  color: #000000;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.25rem;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.sideNav a:hover, .sideNav .dropdown-btn:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 7px;
+}
+
+.sideNav .link-text{
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 100ms ease, transform 100ms ease;
+}
+
+.sideNav .caret{
+  margin-left: auto;
+  transition: transform 100ms;
+}
+
+.dropdown-content{
+  display: none;
+  padding-left: 12px;
+  background-color: var(--side-nav-background);
+}
+
+.collapse-side-btn{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sideNav.collapsed{
+  width: 64px;
+  background-color: transparent;
+}
+
+.sideNav.collapsed .link-text{
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+}
+
+.sideNav.collapsed a,
+.sideNav.collapsed .dropdown-btn{
+  justify-content: center;
+}
+
+.sideNav.collapsed .caret{
+  opacity: 0;
+}
+
+
+.nav-image {
+  padding-left: 9px;
+  padding-top: 6px;
+}
+
+.sideNav:not(.collapsed){
+  box-shadow: 2px 0 0 rgba(0,0,0,0.15);
+}
+
+.dropdown-content {
+  display: none;
+  background-color: var(--side-nav-background);
+  padding-left: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.sideNav.collapsed a, .sideNav.collapsed .dropdown-btn {
+    font-size: 0;
+}
+
+.sideNav.collapsed .nav-image{
+    opacity: 0;
+}
+
+.main-content{
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+
+/* --------------------------------------------------------------- */
+/* main page content */
+
+.top-new-tick-and-search{
+  display: flex;
+  align-items: center;
+}
+
+.ticket-types-section{
+  display: flex;
+}
+
+.main-new-tick-section{
+  display: flex;
+}
+
+
+
+/* TOP NEW TICKET BUTTON AND SEARCH */
+.top-new-ticket-btn{
+  display: flex;
+  width: 220px;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: var(--blue-btn-search);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.top-new-tick-btn:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.top-search-ticket-input{
+  display: flex;
+  justify-content: center;
+  padding: 5px 8px;
+  width: 350px;
+  margin-left: 35px;
+}
+
+
+.search-ticket-btn{
+  display: flex;
+  width: 90px;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: var(--blue-btn-search);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+
+/* OPEN, RECENT, CLOSED, ALL TICKETS BUTTONS SECTION*/
