@@ -33,10 +33,10 @@ function fetchTickets() {
         { id: 54321, name: "Example Ticket 3", status: "open", priority: "medium", daysOpen: 10 },
         { id: 92834, name: "printer not working", status: "open", priority: "low", daysOpen: 1 },
         { id: 30498, name: "pc not turning on", status: "open", priority: "high", daysOpen: 5 },
-        { id: 204, name: "monitor is black", status: "open", priority: "high", daysOpen: 2 },
-        { id: 283, name: "phone is not working", status: "open", priority: "high", daysOpen: 2 },
-        { id: 10398, name: "rta not working", status: "open", priority: "high", daysOpen: 6 },
-        { id: 4955, name: "cant print", status: "open", priority: "medium", daysOpen: 4 },
+        { id: 204, name: "monitor is black", status: "open", priority: "high", daysOpen: 12 },
+        { id: 283, name: "phone is not working", status: "open", priority: "high", daysOpen: 20 },
+        { id: 10398, name: "rta not working", status: "open", priority: "high", daysOpen: 21 },
+        { id: 4955, name: "cant print", status: "open", priority: "medium", daysOpen: 15 },
     ]
 }
 
@@ -84,7 +84,22 @@ function applySearchFilter(tickets, query) {
 function renderTable(tickets){
     tbody.innerHTML = tickets.map(t => `
         <tr>
-            <td class="col-select"><input type="checkbox" class="row-select" id="select-check-boxes" aria-label="Select ticket ${t.id}"></td>
+            <td class="col-select">
+                <div class="options-for-ticket">
+                    <div>
+                        <button class="edit-ticket-btn" id="edit-this-ticket" aria-label="Edit this ticket">Edit</button>
+                    </div>
+
+                    <div>
+                        <button class="archive-btn-option">Archive</button>
+                    </div>
+
+                    <div>
+                        <button class="delete-btn-option">Delete</button>
+                    </div>
+                </div>
+            </td>
+            
             <td>${t.id}</td>
             <td>${t.name}</td>
             <td>${t.status}</td>
@@ -123,18 +138,7 @@ function getInitialView() {
 // the button will only appear when only 1 ticket
 // is selected, if all or more than 1 ticket is selected
 // then how would you edit it
-function hideEditSelected(){
-    const selected = document.querySelectorAll(".row-select:checked")
-    if(selected.length === 0) {
-        editSelected.style.visibility = "hidden";
-    }
-    else if (selected.length === 1) {
-        editSelected.style.visibility = "visible";
-    }
-    else {
-        editSelected.style.visibility = "hidden";
-    }
-}
+
 
 document.addEventListener("change", (e) => {
     if(e.target.classList.contains("row-select")) {
@@ -142,7 +146,6 @@ document.addEventListener("change", (e) => {
     }
 })
 
-hideEditSelected();
 
 // MUST DO STILL
 

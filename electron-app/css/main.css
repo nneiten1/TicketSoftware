@@ -20,7 +20,8 @@
     font-family: "MainPageFont", sans-serif;
 }
 
-aside, .ticket-info-table, .table-body-section{
+aside, .ticket-info-table, .table-body-section, .edit-ticket-btn,
+.archive-btn-option{
     font-family: "CustomFont", sans-serif;
 }
 
@@ -272,7 +273,7 @@ body{
 }
 
 .main-new-tick-section{
-  margin-top: 4%;
+  margin-top: 7%;
 }
 
 .main-new-ticket-btn{
@@ -312,7 +313,7 @@ body{
 }
 
 .ticket-info-table thead, tr {
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .ticket-managing-buttons{
@@ -349,4 +350,61 @@ body{
   cursor: pointer;
   margin-left: auto;
   margin-top: 2.5%;
+}
+
+
+.archive-selected-btn {
+  display: flex;
+  width: 220px;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: var(--blue-btn-search);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-top: 2.5%;
+}
+
+
+.edit-ticket-btn{
+  background-color: var(--edit-selected-ticket);
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+table td:first-child {
+    width: 10%;
+}
+
+table td:nth-child(2){
+  width: 7%;
+}
+
+.options-for-ticket{
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.archive-btn-option{
+  background-color: var(--blue-btn-search);
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.delete-btn-option{
+  background-color: var(--red-closed-ticket-btn);
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
 }
