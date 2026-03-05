@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Submit a ticket</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/newTicket.css">
 </head>
@@ -80,10 +80,22 @@
                         <option value="low">Low</option>
                     </select>
                 </div>
+                <div class="file-and-submit">
 
-                <div class="submit-ticket-btn">
-                    <button class="submit-new-ticket-btn" id="submit-ticket-btn">Submit Ticket</button>
+                    <form action="/upload-endpoint" method="POST" enctype="multipart/form-data">
+                        <div class="label-file-upload">
+                            <label for="file">Choose file to upload (not required)</label>
+                            <input type="file" id="file" name="file"/>
+                        </div>
+                    </form>
+
+                    <div class="submit-ticket-btn">
+                        <button class="submit-new-ticket-btn" id="submit-ticket-btn" type="submit">Submit Ticket</button>
+                    </div>
+
+                    
                 </div>
+                
             </form>
             
         </main>
@@ -91,6 +103,7 @@
     </div>
     <script src="../js/foo.js"></script>
     <script src="../js/tabs.js"></script>
+    <script src="../js/newTicket.js"></script>
 
 </body>
 </html>

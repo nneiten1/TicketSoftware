@@ -21,13 +21,15 @@
 
 .parent-for-header{
     display: flex;
-    align-items: start;
-    background-color: rgb(241, 238, 238);
+    align-items: center;
+    background-color: rgb(226, 226, 226);
+    position: relative;
+    width: 100%;
 }
 
 .go-back-arrow-header{
     display:flex;
-    flex-direction: row;
+    align-items: center;
 
     padding: 20px 0 20px 0;
 }
@@ -57,10 +59,12 @@
 
 .new-ticket-header{
     display: flex;
+    position: absolute;
+    left: 50%;
     flex-direction: row;
+    transform: translateX(-50%);
     padding: 17px 0 20px 0;
     font-size: 26px;
-    align-items: center;
 }
 
 
@@ -75,6 +79,7 @@
 
 .subject-field input{
     width: 41%;
+    padding: 5px;
     border-radius: 4px;
     border: 1px solid black;
 }
@@ -111,6 +116,7 @@ textarea{
 .priority-box select{
     width: 41%;
     border-radius: 4px;
+    padding: 5px;
 }
 
 .type-of-problem{
@@ -123,13 +129,40 @@ textarea{
 
 .type-of-problem select{
     width: 41%;
+    padding: 5px;
     border-radius: 4px;
 }
 
-.submit-ticket-btn{
-    margin-top: 3%;
+.submit-new-ticket-btn{
+    display: flex;
+    width: 220px;
+    justify-content: center;
+    padding: 10px 16px;
+    background-color: var(--blue-btn-search);
+    color: white;
+    margin: 0 auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+.submit-ticket-btn:focus,
+.submit-ticket-btn:focus-visible{
+  outline: none;
+  box-shadow: none;
+}
+
+.file-and-submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    gap: 20px;
+}
+
+.label-file-upload{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-size: 24px;
 }

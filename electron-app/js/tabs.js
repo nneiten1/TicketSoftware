@@ -1,3 +1,13 @@
+/*
+--------------------------------------------------------------------------
+
+PRIMARY JAVASCRIPT FOR DASHBOARD PAGE FUNCTIONALITY
+
+- tickets are fetched here from Zammad API
+
+--------------------------------------------------------------------------
+*/
+
 let currentView = 'all';
 let allTickets = [];
 let currentSeach = "";
@@ -8,26 +18,36 @@ const searchInput = document.getElementById("search-ticket-input");
 const checkBoxAll = document.getElementById("select-all-checkbox")
 const checkBoxes = document.getElementById("select-check-boxes");
 const editSelected = document.getElementById("edit-selected-btn");
+const ticketCounter = document.getElementById("num-of-tickets");
 
+const aside = document.querySelector("aside");
+aside.classList.toggle("collapsed");
+
+
+// getting tickets from Zammad
 function fetchTickets() {
     // this will be replaced with the Zammad API call
     return [
-        { id: 12345, name: "Example Ticket 1", status: "open", severity: "high", daysOpen: 5 },
-        { id: 67890, name: "Example Ticket 2", status: "closed", severity: "low", daysOpen: 2 },
-        { id: 54321, name: "Example Ticket 3", status: "open", severity: "medium", daysOpen: 10 },
-        { id: 92834, name: "printer not working", status: "open", severity: "low", daysOpen: 1 },
-        { id: 30498, name: "pc not turning on", status: "open", severity: "high", daysOpen: 5 },
-        { id: 204, name: "monitor is black", status: "open", severity: "high", daysOpen: 2 },
-        { id: 283, name: "phone is not working", status: "open", severity: "high", daysOpen: 2 },
-        { id: 10398, name: "rta not working", status: "open", severity: "high", daysOpen: 6 },
-        { id: 4955, name: "cant print", status: "open", severity: "medium", daysOpen: 4 },
+        { id: 12345, name: "Example Ticket 1", status: "open", priority: "high", daysOpen: 5 },
+        { id: 67890, name: "Example Ticket 2", status: "closed", priority: "low", daysOpen: 2 },
+        { id: 54321, name: "Example Ticket 3", status: "open", priority: "medium", daysOpen: 10 },
+        { id: 92834, name: "printer not working", status: "open", priority: "low", daysOpen: 1 },
+        { id: 30498, name: "pc not turning on", status: "open", priority: "high", daysOpen: 5 },
+        { id: 204, name: "monitor is black", status: "open", priority: "high", daysOpen: 2 },
+        { id: 283, name: "phone is not working", status: "open", priority: "high", daysOpen: 2 },
+        { id: 10398, name: "rta not working", status: "open", priority: "high", daysOpen: 6 },
+        { id: 4955, name: "cant print", status: "open", priority: "medium", daysOpen: 4 },
     ]
 }
 
+
+// checking the amount of days a ticket has been open
 function isRecent(ticket) {
     return ticket.daysOpen <= 7;
 }
 
+
+// managing what tickets can been seen depending on the filter
 function applyViewFilter(tickets, view) {
     switch (view) {
         case 'open':
@@ -44,6 +64,8 @@ function applyViewFilter(tickets, view) {
 
 }
 
+
+// doing the search result magic
 function applySearchFilter(tickets, query) {
     const q = query.trim().toLowerCase();
     if (!q) return tickets;
@@ -52,12 +74,13 @@ function applySearchFilter(tickets, query) {
         String(t.id).includes(q) ||
         t.name.toLowerCase().includes(q) ||
         t.status.toLowerCase().includes(q) ||
-        t.severity.toLowerCase().includes(q)
+        t.priority.toLowerCase().includes(q)
     );
 }
 
 
 // can add more for more information
+// making the table for the tickets and their parameters to sit in
 function renderTable(tickets){
     tbody.innerHTML = tickets.map(t => `
         <tr>
@@ -65,23 +88,41 @@ function renderTable(tickets){
             <td>${t.id}</td>
             <td>${t.name}</td>
             <td>${t.status}</td>
-            <td>${t.severity}</td>
+            <td>${t.priority}</td>
             <td>${t.daysOpen}</td>
         </tr>
     `).join('');
 }
 
+function updateTicketCount(count) {
+if (!ticketCounter) return;
+
+ticketCounter.textContent =
+    `${count} Ticket${count === 1 ? "" : "s"}`;
+
+}
+
+// refreshing the page
 function refresh(){
     const viewFiltered = applyViewFilter(allTickets, currentView);
     const searchFiltered = applySearchFilter(viewFiltered, currentSeach);
     renderTable(searchFiltered);
+    updateTicketCount(searchFiltered.length);
 }
 
+
+// idk tbh
 function getInitialView() {
     const params = new URLSearchParams(window.location.search);
     return params.get("view" || "all");
 }
 
+
+// manages when the edit selection button appears
+//
+// the button will only appear when only 1 ticket
+// is selected, if all or more than 1 ticket is selected
+// then how would you edit it
 function hideEditSelected(){
     const selected = document.querySelectorAll(".row-select:checked")
     if(selected.length === 0) {
@@ -143,6 +184,8 @@ document.querySelectorAll("#ticketTabs .tab").forEach(btn => {
     btn.classList.toggle("is-active", btn.dataset.view === currentView);
 });
 
+
+// the select all thingy i think
 checkBoxAll.addEventListener("click", (e) => {
     const checkBoxes = document.querySelectorAll(".row-select");
 

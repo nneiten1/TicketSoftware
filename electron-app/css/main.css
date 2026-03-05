@@ -25,8 +25,12 @@ aside, .ticket-info-table, .table-body-section{
 }
 
 aside {
-  margin: 0;
-  padding: 0;
+  flex: 0 0 9.5rem;
+  height: 100vh;
+}
+
+aside.collapsed{
+  flex-basis: 64px
 }
 
 body{

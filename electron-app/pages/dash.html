@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body style="background-color: white;" >
@@ -75,8 +75,8 @@
                     <div>
                         <button class="main-new-ticket-btn" onClick="document.location='newTicket.html'">New Ticket</button>
                     </div>
-                    <div class="current-tickets-counter">
-                        <p>3 Tickets</p>
+                    <div class="current-tickets-counter" id="num-of-tickets">
+                        <p>0 Tickets</p>
                     </div>
                 </div>
             </section>
@@ -91,7 +91,7 @@
                         <th>Ticket ID</th>
                         <th>Ticket Name</th>
                         <th>Status</th>
-                        <th>Severity</th>
+                        <th>Priority</th>
                         <th>Days Open</th>
                     </tr>
                 </thead>

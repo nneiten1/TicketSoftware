@@ -41,4 +41,14 @@ const sideNav = document.getElementById("mySideNav");
 
 collapseBtn.addEventListener("click", () => {
     sideNav.classList.toggle("collapsed");
+
+    const dropDownContents = document.querySelectorAll(".dropdown-content");
+    dropDownContents.forEach(content => {
+      content.style.display = "none"
+    });
+
+    const dropDownBtn = document.querySelectorAll(".dropdown-btn");
+    dropDownBtn.forEach(btn => {
+      btn.classList.remove("active");
+    });
 });
