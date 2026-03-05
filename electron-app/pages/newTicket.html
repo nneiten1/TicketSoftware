@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/newTicket.css">
 </head>
 <body style="background-color: white;" >
     <div class="app-layout">
@@ -13,7 +14,7 @@
         <aside>
             <div id="mySideNav" class="sideNav">
                 <div>
-                    <img class="nav-image" src="../medina-county.png" alt="Logo" width="100px" height="100px">
+                    <img class="nav-image" src="../images/medina-county.png" alt="Logo" width="100px" height="100px">
                     <button id="collapseSideBtn" class="collapse-side-btn" style="font-size: 1.25rem;">☰</button>
                 </div>
                     
@@ -30,7 +31,60 @@
                 </div>
             </div>
         </aside>
-        <main class="main-content">
+        
+        <main class="main-content-new-tix">
+            <header class="parent-for-header" id="parent-id-for-header">
+                <div class="go-back-arrow-header" id="go-back-arrow-id">
+                    <button class="new-tix-header-go-back" id="header-go-back">
+                        <img src="../images/blue-back-arrow.png" alt="Back Arrow">
+                        Go Back
+                    </button>
+                </div>
+
+                <div class="new-ticket-header" id="new-ticket-header-id">
+                    New Ticket
+                </div>  
+            </header>
+
+            <form class="ticket-form">
+                <div class="subject-field" id="subject-field-id">
+                    <label for="ticket-subject">Subject</label>
+                    <input type="text" id="ticket-subject" name="subject" placeholder="Subject..." maxlength="60" required>
+                </div>
+
+                <div class="description-field" id="description-field-id">
+                    <label for="ticket-description">Description</label>
+                    <textarea rows="7" cols = "65" name="ticket-description" placeholder="Description..."></textarea>
+                </div>
+
+                <div class="type-of-problem" id="type-of-problem-id">
+                    <label for="type-selection">Type</label>
+                    <select name="type-selection" id="type-selection-id" required>
+                        <option value="" disabled selected>Select a type</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                        <option value="network">Network</option>
+                        <option value="accountsnaccess">Accounts & Access</option>
+                        <option value="services">Services</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+
+                <div class="priority-box" id="priority-box-id">
+                    <label for="priority">Priority</label>
+                    <select name="priority" id="priority-select" required>
+                        <option value="" disabled selected>Select a priority</option>
+                        <option value="critical">Critical</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <div class="submit-ticket-btn">
+                    <button class="submit-new-ticket-btn" id="submit-ticket-btn">Submit Ticket</button>
+                </div>
+            </form>
             
         </main>
 

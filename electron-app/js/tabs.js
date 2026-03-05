@@ -6,7 +6,8 @@ const tbody = document.getElementById("table-body");
 const tabs = document.getElementById("ticketTabs");
 const searchInput = document.getElementById("search-ticket-input");
 const checkBoxAll = document.getElementById("select-all-checkbox")
-const checkBoxes = document.getElementById("select-check-boxes")
+const checkBoxes = document.getElementById("select-check-boxes");
+const editSelected = document.getElementById("edit-selected-btn");
 
 function fetchTickets() {
     // this will be replaced with the Zammad API call
@@ -81,7 +82,26 @@ function getInitialView() {
     return params.get("view" || "all");
 }
 
+function hideEditSelected(){
+    const selected = document.querySelectorAll(".row-select:checked")
+    if(selected.length === 0) {
+        editSelected.style.visibility = "hidden";
+    }
+    else if (selected.length === 1) {
+        editSelected.style.visibility = "visible";
+    }
+    else {
+        editSelected.style.visibility = "hidden";
+    }
+}
 
+document.addEventListener("change", (e) => {
+    if(e.target.classList.contains("row-select")) {
+        hideEditSelected();
+    }
+})
+
+hideEditSelected();
 
 // MUST DO STILL
 
@@ -91,6 +111,7 @@ function getInitialView() {
 // HAVE THE NUMBER OF TICKETS PRESENTED
 
 // ARCHIVE TAB?
+
 
 
 
@@ -130,3 +151,4 @@ checkBoxAll.addEventListener("click", (e) => {
     })
 
 })
+

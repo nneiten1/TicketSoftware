@@ -7,7 +7,7 @@ const createWindow = () => {
 
   win.maximize();
   win.show();
-  win.setMenu(null);
+  // win.setMenu(null);
 
   win.loadFile('pages/dash.html')
   // win.webContents.openDevTools()
