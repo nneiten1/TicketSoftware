@@ -12,6 +12,7 @@ let currentView = 'all';
 let allTickets = [];
 let currentSeach = "";
 
+const tbodyArchive = document.getElementById("archive-body")
 const tbody = document.getElementById("table-body");
 const tabs = document.getElementById("ticketTabs");
 const searchInput = document.getElementById("search-ticket-input");
@@ -81,6 +82,7 @@ function applySearchFilter(tickets, query) {
 
 // can add more for more information
 // making the table for the tickets and their parameters to sit in
+
 function renderTable(tickets){
     tbody.innerHTML = tickets.map(t => `
         <tr>
@@ -109,6 +111,19 @@ function renderTable(tickets){
     `).join('');
 }
 
+function renderArchiveTable(tickets){
+    tbodyArchive.innerHTML = tickets.map(t => `
+        <tr>
+            
+            <td>${t.id}</td>
+            <td>${t.name}</td>
+            <td>${t.status}</td>
+            <td>${t.priority}</td>
+            <td>${t.daysOpen}</td>
+        </tr>
+    `).join('');
+}
+
 function updateTicketCount(count) {
 if (!ticketCounter) return;
 
@@ -121,7 +136,12 @@ ticketCounter.textContent =
 function refresh(){
     const viewFiltered = applyViewFilter(allTickets, currentView);
     const searchFiltered = applySearchFilter(viewFiltered, currentSeach);
+
+    console.log("viewFiltered:", viewFiltered);
+    console.log("searchFiltered:", searchFiltered);
+
     renderTable(searchFiltered);
+    renderArchiveTable(searchFiltered);
     updateTicketCount(searchFiltered.length);
 }
 
@@ -152,7 +172,6 @@ document.addEventListener("change", (e) => {
 
 // DELETE THE SELECTED TICKETS
 
-// HAVE THE NUMBER OF TICKETS PRESENTED
 
 // ARCHIVE TAB?
 

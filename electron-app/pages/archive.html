@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/newTicket.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside>
+            <div id="mySideNav" class="sideNav">
+                <div>
+                    <img class="nav-image" src="../images/medina-county.png" alt="Logo" width="100px" height="100px">
+                    <button id="collapseSideBtn" class="collapse-side-btn" style="font-size: 1.25rem;">☰</button>
+                </div>
+                        
+                <a href="./accountOverview.html">Account</a>
+                <a href="./dash.html">Dashboard</a>
+                <button class="dropdown-btn">Tickets 
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="./dash.html?view=open">Open Tickets</a>
+                    <a href="./dash.html?view=recent">Recent Tickets</a>
+                    <a href="./dash.html?view=all">All Tickets</a>
+                </div>
+                <a href="./archive.html">Archive</a>
+            </div>
+        </aside>
+
+        <main class="main-content-new-tix">
+            <header class="parent-for-header" id="parent-id-for-header">
+                <div class="go-back-arrow-header" id="go-back-arrow-id">
+                    <button class="new-tix-header-go-back" id="header-go-back">
+                        <img src="../images/blue-back-arrow.png" alt="Back Arrow">
+                        Go Back
+                    </button>
+                </div>
+
+                <div class="new-ticket-header" id="new-ticket-header-id">
+                    Archived Tickets
+                </div> 
+            </header>
+
+            <table class="archive-info-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Ticket ID</th>
+                        <th>Ticket Name</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Days Open</th>
+                    </tr>
+                </thead>
+
+                <tbody id="archive-body" class="archive-body-section">
+                    <!-- Javascript -->
+                </tbody>
+            </table>
+            
+        </main>
+    </div>  
+    <script src="../js/foo.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/newTicket.js"></script>
+
+
+</body>
+</html>
